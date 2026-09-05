@@ -1,0 +1,29 @@
+<h2>Carrinho de Compras</h2>
+
+<p>Produto: {{ produto }}</p>
+
+<p>Preço: {{ preco | currency:'BRL' }}</p>
+
+<p>
+  Quantidade:
+
+  <button
+    (click)="diminuirQuantidade()"
+    [disabled]="quantidade === 1">
+    -
+  </button>
+
+  {{ quantidade }}
+
+  <button (click)="aumentarQuantidade()">
+    +
+  </button>
+</p>
+
+<p>
+  Total: {{ preco * quantidade | currency:'BRL' }}
+</p>
+
+<button (click)="adicionarCarrinho()">
+  Adicionar ao carrinho
+</button>

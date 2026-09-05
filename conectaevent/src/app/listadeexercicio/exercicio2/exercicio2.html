@@ -1,0 +1,7 @@
+<p>Produto: {{ produto }}</p>
+<p>Preço unitário: {{ preco | currency:'BRL' }}</p>
+<p>Quantidade: {{ quantidade }}</p>
+<hr>
+
+
+<h3>Total: {{ (preco * quantidade) | currency:'BRL' }}</h3>
