@@ -1,0 +1,61 @@
+<h2>Exercício 14</h2>
+
+<h3>Exercício 5 - Lista de nomes</h3>
+
+<ul>
+  @for (nome of nomes; track $index; let primeiro = $first; let ultimo = $last) {
+    <li>
+      {{ $index + 1 }} - {{ nome }}
+
+      @if (primeiro) {
+        <span> - Primeiro da lista</span>
+      }
+
+      @if (ultimo) {
+        <span> - Último da lista</span>
+      }
+    </li>
+  } @empty {
+    <li>Nenhum nome cadastrado.</li>
+  }
+</ul>
+
+
+<h3>Exercício 6 - Verificação da lista</h3>
+
+@if (nomes.length > 0) {
+  <p>A lista possui {{ nomes.length }} nomes.</p>
+} @else {
+  <p>Nenhum nome cadastrado.</p>
+}
+
+
+<h3>Exercício 11 - Filtro de produtos</h3>
+
+<button (click)="alternarFiltro()">
+  {{ somenteDisponiveis ? 'Mostrar todos' : 'Mostrar somente disponíveis' }}
+</button>
+
+<ul>
+  @for (produto of produtos; track produto.nome) {
+    @if (!somenteDisponiveis || produto.quantidade > 0) {
+      <li>
+        {{ produto.nome }} - Quantidade: {{ produto.quantidade }}
+      </li>
+    }
+  } @empty {
+    <li>Nenhum produto cadastrado.</li>
+  }
+</ul>
+
+
+<h3>Diferenças entre as sintaxes</h3>
+
+<p>
+  1. A sintaxe moderna usa blocos de controle no lugar das diretivas estruturais
+  tradicionais.
+</p>
+
+<p>
+  2. O bloco de repetição possui uma opção para tratar listas vazias.
+</p>

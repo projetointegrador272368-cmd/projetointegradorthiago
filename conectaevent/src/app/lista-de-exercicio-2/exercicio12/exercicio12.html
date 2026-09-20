@@ -1,0 +1,43 @@
+<h2>Exercício 12</h2>
+
+<label>
+  Nome:
+  <input type="text" [(ngModel)]="nome">
+</label>
+
+<br><br>
+
+<label>
+  Quantidade:
+  <input type="number" [(ngModel)]="quantidade">
+</label>
+
+<br><br>
+
+<button (click)="adicionarProduto()">
+  Adicionar
+</button>
+
+<button (click)="limparCampos()">
+  Limpar
+</button>
+
+<p *ngIf="mensagemErro">
+  {{ mensagemErro }}
+</p>
+
+<h3>Produtos cadastrados</h3>
+
+<p *ngIf="produtos.length === 0">
+  Nenhum produto cadastrado.
+</p>
+
+<ul>
+  <li *ngFor="let produto of produtos; let i = index">
+    {{ produto }}
+
+    <button (click)="excluirProduto(i)">
+      Excluir
+    </button>
+  </li>
+</ul>

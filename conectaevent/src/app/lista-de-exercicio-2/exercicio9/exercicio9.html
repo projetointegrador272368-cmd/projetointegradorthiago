@@ -1,0 +1,28 @@
+<h2>Exercício 9</h2>
+
+<ul>
+  <li
+    *ngFor="let produto of produtos"
+    [ngClass]="{
+      'sem-estoque': produto.quantidade === 0,
+      'baixo-estoque': produto.quantidade > 0 && produto.quantidade <= 3,
+      'estoque-normal': produto.quantidade > 3
+    }"
+  >
+    <strong>{{ produto.nome }}</strong>
+
+    <p>Quantidade: {{ produto.quantidade }}</p>
+
+    <p *ngIf="produto.quantidade === 0">
+      Sem estoque
+    </p>
+
+    <p *ngIf="produto.quantidade > 0 && produto.quantidade <= 3">
+      Estoque baixo
+    </p>
+
+    <p *ngIf="produto.quantidade > 3">
+      Estoque normal
+    </p>
+  </li>
+</ul>

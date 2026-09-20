@@ -1,0 +1,13 @@
+<h2>Exercício 2</h2>
+
+<p *ngIf="usuarioLogado">
+  Usuário autenticado
+</p>
+
+<p *ngIf="!usuarioLogado">
+  Acesso não autorizado
+</p>
+
+<button (click)="entrarOuSair()">
+  {{ usuarioLogado ? 'Sair' : 'Entrar' }}
+</button>

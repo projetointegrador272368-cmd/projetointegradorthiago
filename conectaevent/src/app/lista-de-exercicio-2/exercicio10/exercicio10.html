@@ -1,0 +1,21 @@
+<h2>Exercício 10</h2>
+
+<p>{{ nomeProduto }}</p>
+
+<p
+  [ngStyle]="{
+    'font-weight': emPromocao ? 'bold' : 'normal',
+    'color': emPromocao ? 'red' : 'black'
+  }"
+>
+  Preço:
+  {{ emPromocao ? precoPromocional : precoNormal | currency:'BRL' }}
+</p>
+
+<p *ngIf="emPromocao">
+  Produto em promoção!
+</p>
+
+<button (click)="alternarPromocao()">
+  {{ emPromocao ? 'Desativar promoção' : 'Ativar promoção' }}
+</button>
